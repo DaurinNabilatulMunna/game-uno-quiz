@@ -30,7 +30,7 @@ let timerInterval; // Untuk mengontrol timer
 const allQuestions = [
     {
         questionText: "Berapakah hasil dari 3 + 5?",
-        options: ["13", "11", "12", "7"],
+        options: ["13", "11", "12", "8"],
         correctAnswer: "8",
         color: "blue"
     },
