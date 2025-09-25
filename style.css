@@ -141,7 +141,7 @@ body {
     justify-content: center;
     gap: 15px;
     margin-top: 30px;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 }
 
 .card {
@@ -165,17 +165,19 @@ body {
 
 /* KARTU JAWABAN INDIVIDUAL */
 .answer-card {
-    width: 20%;
+    /* Turunkan persentase width agar lebih kecil di ponsel,
+       dan beri max-width agar tidak terlalu besar di desktop */
+    width: 40%; /* Menampilkan 2 kartu per baris di ponsel */
     min-width: 120px;
-    height: 140px;
+    height: 140px; 
     font-size: 1em;
     padding: 10px;
     text-align: center;
     line-height: 1.4;
     
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center; 
+    justify-content: center; 
     color: #EAEAEA;
     border: 3px solid #555; 
 }
@@ -301,4 +303,57 @@ body {
     font-weight: 700;
     margin-bottom: 10px;
     color: #00FFFF;
+}
+
+/* ========================================= */
+/* MEDIA QUERY UNTUK PONSEL (MOBILE) */
+/* ========================================= */
+@media (max-width: 600px) {
+    
+    #game-container {
+        /* Hapus max-width dan gunakan padding agar konten tidak mepet */
+        width: 100%;
+        padding: 15px;
+        min-height: auto;
+        /* Hapus box-shadow yang intens di mobile agar performa lebih baik (opsional) */
+        box-shadow: none; 
+        border-radius: 0;
+    }
+
+    /* Turunkan ukuran font utama */
+    body {
+        font-size: 0.9em;
+    }
+
+    /* Turunkan ukuran logo */
+    .start-logo {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    /* Turunkan ukuran teks pada kartu jawaban */
+    .answer-card {
+        width: 45%; /* Pastikan dua kartu bisa muat dengan gap */
+        height: 100px;
+        font-size: 0.9em;
+        padding: 8px;
+    }
+    
+    /* Tombol lebih kecil */
+    .uno-button, #start-button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+    
+    /* Timer dan Skor */
+    .timer-bar, #score-board {
+        font-size: 1em;
+    }
+
+    /* Soal */
+    .question-card.open {
+        min-height: 150px;
+        padding: 15px;
+        margin: 20px auto;
+    }
 }
