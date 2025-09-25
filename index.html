@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uno Challenge: This or That Education</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="start-screen" class="screen active">
+            <button id="start-button" class="uno-button">LET'S GO!</button>
+        </div>
+
+        <div id="card-selection-screen" class="screen hidden">
+            <h2>Pilih Kartu Soalmu!</h2>
+            <div class="card-deck">
+                <div class="card back blue" data-card-index="0"><span>?</span></div>
+                <div class="card back green" data-card-index="1"><span>?</span></div>
+                <div class="card back yellow" data-card-index="2"><span>?</span></div>
+            </div>
+        </div>
+
+        <div id="question-screen" class="screen hidden">
+            <div class="timer-bar">Waktu Tersisa: <span id="timer-display">6:00</span></div>
+            <div class="question-card card open red">
+                <h3 id="question-number">Soal 1</h3>
+                <p id="question-text">Ini adalah tempat soal dicatat oleh siswa. Catat baik-baik sebelum lanjut!</p>
+            </div>
+            <button id="next-to-answer-button" class="uno-button green">SUDAH CATAT, LANJUT!</button>
+        </div>
+
+        <div id="answer-screen" class="screen hidden">
+            <h2>Pilih Jawabanmu!</h2>
+            <p id="feedback-message" class="feedback"></p>
+            <div class="answer-deck">
+                <div class="card answer-card blue" data-answer-id="0"><span>Jawaban A</span></div>
+                <div class="card answer-card yellow" data-answer-id="1"><span>Jawaban B</span></div>
+                <div class="card answer-card green" data-answer-id="2"><span>Jawaban C</span></div>
+                <div class="card answer-card red" data-answer-id="3"><span>Jawaban D</span></div>
+            </div>
+            <button id="skip-button" class="uno-button skip-btn" disabled>SKIP (Gagal Poin Rendah)</button>
+        </div>
+    </div>
+    <div id="score-board">Skor: <span id="score-display">0</span> | Kesalahan: <span id="mistake-count">0</span></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
