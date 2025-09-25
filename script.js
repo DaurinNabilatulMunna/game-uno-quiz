@@ -7,7 +7,7 @@ const questionScreen = document.getElementById('question-screen');
 const answerScreen = document.getElementById('answer-screen');
 
 const startButton = document.getElementById('start-button');
-const selectableCards = document.querySelectorAll('.card-deck .card'); 
+const selectableCards = document.querySelectorAll('.card-deck .card');
 const nextToAnswerButton = document.getElementById('next-to-answer-button');
 
 const answerCards = document.querySelectorAll('.answer-deck .answer-card');
@@ -26,28 +26,39 @@ let currentQuestionIndex = 0;
 let questionStartTime = 0;
 let timerInterval; // Untuk mengontrol timer
 
-// Data Soal Lengkap
+// Data Soal Hitungan (5 Soal Baru)
 const allQuestions = [
     {
-        questionText: "Berapakah hasil dari 3 + 5?",
-        options: ["13", "11", "12", "8"],
-        correctAnswer: "8",
+        questionText: "Berapakah hasil dari 15 + 27?",
+        options: ["32", "42", "40", "38"],
+        correctAnswer: "42",
+        color: "red"
+    },
+    {
+        questionText: "Hasil pengurangan dari 55 - 19 adalah...",
+        options: ["36", "46", "34", "44"],
+        correctAnswer: "36",
         color: "blue"
     },
     {
-        questionText: "Siapa penemu teori relativitas?",
-        options: ["Isaac Newton", "Nikola Tesla", "Albert Einstein", "Thomas Edison"],
-        correctAnswer: "Albert Einstein",
+        questionText: "Berapakah hasil perkalian dari 12 x 8?",
+        options: ["86", "98", "96", "102"],
+        correctAnswer: "96",
         color: "green"
     },
     {
-        questionText: "Apa gas yang paling banyak di atmosfer bumi?",
-        options: ["Oksigen", "Nitrogen", "Argon", "Karbon Dioksida"],
-        correctAnswer: "Nitrogen",
+        questionText: "Hasil pembagian dari 84 ÷ 7 adalah...",
+        options: ["11", "13", "14", "12"],
+        correctAnswer: "12",
         color: "yellow"
+    },
+    {
+        questionText: "Jika (10 + 5) x 2, berapakah hasilnya?",
+        options: ["20", "25", "30", "35"],
+        correctAnswer: "30",
+        color: "red"
     }
 ];
-
 
 // =======================================================
 // 3. FUNGSI UTAMA GAME
@@ -71,7 +82,7 @@ function switchScreen(activeScreen) {
 function startTimer(duration, display, onTimeout) {
     let timeRemaining = duration;
     const timerDisplay = document.getElementById(display);
-    
+
     // Hentikan timer sebelumnya jika ada
     if (timerInterval) clearInterval(timerInterval);
 
@@ -104,11 +115,11 @@ function handleStartGame() {
  * 2. Menangani klik 3 kartu awal.
  */
 function handleCardSelection(event) {
-    if (currentQuestionIndex >= allQuestions.length) return; 
+    if (currentQuestionIndex >= allQuestions.length) return;
 
     const selectedCard = event.currentTarget;
-    const questionData = allQuestions[currentQuestionIndex]; 
-    
+    const questionData = allQuestions[currentQuestionIndex];
+
     selectableCards.forEach(card => card.style.pointerEvents = 'none');
 
     selectedCard.classList.remove('back');
@@ -119,10 +130,10 @@ function handleCardSelection(event) {
         document.getElementById('question-text').textContent = questionData.questionText;
         document.getElementById('question-number').textContent = `Soal ${currentQuestionIndex + 1}`;
         switchScreen(questionScreen);
-        questionStartTime = new Date().getTime(); 
-        
+        questionStartTime = new Date().getTime();
+
         // MULAI TIMER 6 MENIT untuk mencatat soal
-        startTimer(360, 'timer-display', handleTimeout); 
+        startTimer(360, 'timer-display', handleTimeout);
     }, 1500);
 }
 
@@ -176,7 +187,7 @@ function calculateScore() {
 
     if (currentMistakes === 0) {
         if (timeElapsed <= 180) { // Bonus: kurang dari 3 menit (180 detik)
-            points = 20; 
+            points = 20;
         } else {
             points = 10;
         }
@@ -185,11 +196,11 @@ function calculateScore() {
         points = 8;
         feedbackMessage.textContent = `BENAR setelah ${currentMistakes} kali salah. Poin +${points}.`;
     }
-    
+
     currentScore += points;
     scoreDisplay.textContent = currentScore;
     isAnsweredCorrectly = true;
-    
+
     answerCards.forEach(card => card.style.pointerEvents = 'none');
 
     // Lanjut ke soal berikutnya
@@ -203,7 +214,7 @@ function handleAnswerClick(event) {
     const selectedText = event.currentTarget.getAttribute('data-answer-text');
     event.currentTarget.classList.add('selected');
 
-    if (isAnsweredCorrectly) return; 
+    if (isAnsweredCorrectly) return;
 
     if (selectedText === allQuestions[currentQuestionIndex].correctAnswer) {
         // JAWABAN BENAR
@@ -231,20 +242,20 @@ function loadNextQuestion() {
         switchScreen(startScreen); // Kembali ke awal
         return;
     }
-    
+
     // Reset status untuk soal baru
     currentMistakes = 0;
     mistakeCountDisplay.textContent = currentMistakes;
     isAnsweredCorrectly = false;
-    
+
     // Kembali ke layar pilih kartu 
     switchScreen(cardSelectionScreen);
     selectableCards.forEach(card => {
-         card.classList.add('back');
-         // Hapus semua kelas warna dan status
-         card.classList.remove('open', 'blue', 'green', 'yellow', 'red'); 
-         card.innerHTML = `<span>?</span>`;
-         card.style.pointerEvents = 'auto';
+        card.classList.add('back');
+        // Hapus semua kelas warna dan status
+        card.classList.remove('open', 'blue', 'green', 'yellow', 'red');
+        card.innerHTML = `<span>?</span>`;
+        card.style.pointerEvents = 'auto';
     });
 }
 
@@ -253,7 +264,7 @@ function loadNextQuestion() {
 // 4. EVENT LISTENERS (KONEKSI KLIK)
 // =======================================================
 
-startButton.addEventListener('click', handleStartGame); 
+startButton.addEventListener('click', handleStartGame);
 
 selectableCards.forEach(card => {
     card.addEventListener('click', handleCardSelection);
