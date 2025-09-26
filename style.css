@@ -4,8 +4,9 @@
 body {
     font-family: 'Poppins', sans-serif;
     /* Latar Belakang: Hitam Gelap ke Biru Tua (Deep Dark/Cyberpunk) */
-    background: linear-gradient(135deg, #1A1A2E, #0F3460); 
-    color: #EAEAEA; /* Warna teks Putih Kebiruan */
+    background: linear-gradient(135deg, #1A1A2E, #0F3460);
+    color: #EAEAEA;
+    /* Warna teks Putih Kebiruan */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,7 +28,7 @@ body {
     text-align: center;
     position: relative;
     overflow: hidden;
-    min-height: 450px; 
+    min-height: 450px;
 }
 
 /* GAYA KHUSUS UNTUK START SCREEN */
@@ -35,15 +36,17 @@ body {
     /* Asumsikan Anda menyimpan Image 1 sebagai background-start.jpg */
     background-image: url('background-start.jpg');
     background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
+    background-position: center;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Memindahkan konten ke bawah */
+    justify-content: flex-end;
+    /* Memindahkan konten ke bawah */
     align-items: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     padding: 50px 20px;
-    padding-bottom: 120px; /* Jarak tombol dari bawah */
+    padding-bottom: 120px;
+    /* Jarak tombol dari bawah */
     border-radius: 20px;
     height: 100%;
     position: absolute;
@@ -64,8 +67,8 @@ body {
     width: 80%;
     max-width: 450px;
     margin-bottom: 30px;
-    margin-top: auto; /* Mendorong logo ke atas */
-    /* Filter shadow Biru Neon pada logo */
+    margin-top: auto;
+    display: none;
     filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.6));
 }
 
@@ -74,12 +77,15 @@ body {
     font-size: 1.5em;
     padding: 15px 40px;
     border-radius: 10px;
-    background-color: #00FFFF; /* Biru Cyan Menyala */
-    color: #1A1A2E; /* Teks Hitam Gelap */
-    box-shadow: 0 8px 0 #00A3A3; /* Shadow Biru Tua */
+    background-color: #00FFFF;
+    /* Biru Cyan Menyala */
+    color: #1A1A2E;
+    /* Teks Hitam Gelap */
+    box-shadow: 0 8px 0 #00A3A3;
+    /* Shadow Biru Tua */
     border: 2px solid #00A3A3;
     font-weight: 900;
-    margin-top: 0;
+    margin-top: 250px;
 }
 
 #start-button:hover {
@@ -114,10 +120,25 @@ body {
 }
 
 /* Warna Uno yang Lebih Deep dan Vibrant */
-.uno-button.red { background-color: #FF4136; color: white; }
-.uno-button.green { background-color: #2ECC40; color: white; }
-.uno-button.blue { background-color: #0074D9; color: white; }
-.uno-button.yellow { background-color: #FFDC00; color: black; }
+.uno-button.red {
+    background-color: #FF4136;
+    color: white;
+}
+
+.uno-button.green {
+    background-color: #2ECC40;
+    color: white;
+}
+
+.uno-button.blue {
+    background-color: #0074D9;
+    color: white;
+}
+
+.uno-button.yellow {
+    background-color: #FFDC00;
+    color: black;
+}
 
 .uno-button:disabled {
     background-color: #333333 !important;
@@ -147,7 +168,8 @@ body {
 .card {
     width: 120px;
     height: 180px;
-    background-color: #333333; /* Warna kartu lebih gelap */
+    background-color: #333333;
+    /* Warna kartu lebih gelap */
     border-radius: 15px;
     display: flex;
     justify-content: center;
@@ -167,19 +189,20 @@ body {
 .answer-card {
     /* Turunkan persentase width agar lebih kecil di ponsel,
        dan beri max-width agar tidak terlalu besar di desktop */
-    width: 40%; /* Menampilkan 2 kartu per baris di ponsel */
+    width: 40%;
+    /* Menampilkan 2 kartu per baris di ponsel */
     min-width: 120px;
-    height: 140px; 
+    height: 140px;
     font-size: 1em;
     padding: 10px;
     text-align: center;
     line-height: 1.4;
-    
+
     display: flex;
-    align-items: center; 
-    justify-content: center; 
+    align-items: center;
+    justify-content: center;
     color: #EAEAEA;
-    border: 3px solid #555; 
+    border: 3px solid #555;
 }
 
 .answer-card span {
@@ -216,9 +239,17 @@ body {
     border: 5px solid white;
 }
 
-.card.back.blue { background-color: #0074D9; }
-.card.back.green { background-color: #2ECC40; }
-.card.back.yellow { background-color: #FFDC00; }
+.card.back.blue {
+    background-color: #0074D9;
+}
+
+.card.back.green {
+    background-color: #2ECC40;
+}
+
+.card.back.yellow {
+    background-color: #FFDC00;
+}
 
 .card.back span {
     font-size: 4em;
@@ -230,23 +261,25 @@ body {
     width: 90%;
     height: auto;
     min-height: 200px;
-    padding: 25px 30px; 
+    padding: 25px 30px;
     margin: 30px auto;
-    text-align: center; 
-    background-color: #EAEAEA; /* Kartu Soal tetap cerah */
+    text-align: center;
+    background-color: #EAEAEA;
+    /* Kartu Soal tetap cerah */
     color: #1A1A2E;
     cursor: default;
     transform: none;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); /* Shadow biru neon */
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    /* Shadow biru neon */
 }
 
 .question-card h3 {
-    margin-top: 0; 
+    margin-top: 0;
     /* KUNCI: Tingkatkan jarak di bawah "Soal 1" menjadi 40px (atau lebih) */
-    margin-bottom: 40px; 
-    color: #FF4136; 
-    font-size: 1.5em; 
-    border-bottom: none; 
+    margin-bottom: 40px;
+    color: #FF4136;
+    font-size: 1.5em;
+    border-bottom: none;
     padding-bottom: 0;
 }
 
@@ -281,7 +314,8 @@ body {
     font-size: 1.2em;
     font-weight: 700;
     margin-bottom: 15px;
-    color: #00FFFF; /* Timer Biru Cyan Neon */
+    color: #00FFFF;
+    /* Timer Biru Cyan Neon */
     text-shadow: 0 0 5px rgba(0, 255, 255, 0.8);
 }
 
@@ -291,9 +325,11 @@ body {
     font-size: 1.5em;
     font-weight: 700;
     padding: 10px 20px;
-    background-color: rgba(0, 255, 255, 0.1); /* Latar belakang neon transparan */
+    background-color: rgba(0, 255, 255, 0.1);
+    /* Latar belakang neon transparan */
     border-radius: 10px;
-    color: #00FFFF; /* Teks Biru Neon */
+    color: #00FFFF;
+    /* Teks Biru Neon */
     text-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
 }
 
@@ -309,14 +345,14 @@ body {
 /* MEDIA QUERY UNTUK PONSEL (MOBILE) */
 /* ========================================= */
 @media (max-width: 600px) {
-    
+
     #game-container {
         /* Hapus max-width dan gunakan padding agar konten tidak mepet */
         width: 100%;
         padding: 15px;
         min-height: auto;
         /* Hapus box-shadow yang intens di mobile agar performa lebih baik (opsional) */
-        box-shadow: none; 
+        box-shadow: none;
         border-radius: 0;
     }
 
@@ -333,20 +369,23 @@ body {
 
     /* Turunkan ukuran teks pada kartu jawaban */
     .answer-card {
-        width: 45%; /* Pastikan dua kartu bisa muat dengan gap */
+        width: 45%;
+        /* Pastikan dua kartu bisa muat dengan gap */
         height: 100px;
         font-size: 0.9em;
         padding: 8px;
     }
-    
+
     /* Tombol lebih kecil */
-    .uno-button, #start-button {
+    .uno-button,
+    #start-button {
         padding: 10px 20px;
         font-size: 1em;
     }
-    
+
     /* Timer dan Skor */
-    .timer-bar, #score-board {
+    .timer-bar,
+    #score-board {
         font-size: 1em;
     }
 
