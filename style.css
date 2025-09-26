@@ -23,7 +23,6 @@ body {
     border-radius: 20px;
     /* Box Shadow: Biru Neon Menyala */
     box-shadow: 0 0 25px rgba(0, 255, 255, 0.4), 0 15px 30px rgba(0, 0, 0, 0.8);
-    max-width: 90%;
     width: 800px;
     text-align: center;
     position: relative;
@@ -33,19 +32,19 @@ body {
 
 /* GAYA KHUSUS UNTUK START SCREEN */
 #start-screen {
-    /* Asumsikan Anda menyimpan Image 1 sebagai background-start.jpg */
+    /* GAYA DEFAULT (DESKTOP/SEMUA UKURAN) */
     background-image: url('background-start.jpg');
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    /* Gunakan cover untuk desktop/area lebar */
+    background-position: center center;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     /* Memindahkan konten ke bawah */
     align-items: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    padding: 50px 20px;
-    padding-bottom: 120px;
+    padding: 0;
+    padding-bottom: 80px;
     /* Jarak tombol dari bawah */
     border-radius: 20px;
     height: 100%;
@@ -54,7 +53,29 @@ body {
     top: 0;
     left: 0;
     box-sizing: border-box;
-    background-color: transparent !important;
+    /* Ganti transparent dengan warna yang sesuai dengan tepi gambar (misalnya Hitam) */
+    background-color: #000000 !important;
+}
+
+/* ========================================= */
+/* MEDIA QUERY UNTUK PONSEL (MOBILE - Layar Lebar < 600px) */
+/* HARUS BERADA DI LUAR BLOK #start-screen DI ATAS */
+/* ========================================= */
+@media (max-width: 493px) {
+    #start-screen {
+        /* PENTING: Gunakan gambar khusus mobile yang lebih tinggi (jika ada) */
+        background-image: url('background-start-mobile.jpg');
+
+        /* Gunakan contain agar seluruh gambar (yang didesain vertikal) terlihat */
+        background-size: contain;
+
+        /* Set background-color sebagai fallback untuk mengisi ruang kosong */
+        background-color: #000000 !important;
+        /* Mengatur posisi tombol HTML ke lokasi yang tepat */
+        justify-content: flex-end; 
+        padding-bottom: 100px; /* Atur jarak tombol dari bawah */
+        /* Warna merah latar */
+    }
 }
 
 #start-screen h1,
@@ -350,7 +371,7 @@ body {
         /* Hapus max-width dan gunakan padding agar konten tidak mepet */
         width: 100%;
         padding: 15px;
-        min-height: auto;
+        min-height: 90vh;
         /* Hapus box-shadow yang intens di mobile agar performa lebih baik (opsional) */
         box-shadow: none;
         border-radius: 0;
@@ -363,8 +384,7 @@ body {
 
     /* Turunkan ukuran logo */
     .start-logo {
-        width: 90%;
-        max-width: 300px;
+        display: none;
     }
 
     /* Turunkan ukuran teks pada kartu jawaban */
@@ -381,6 +401,9 @@ body {
     #start-button {
         padding: 10px 20px;
         font-size: 1em;
+        margin-top: 50px;
+        /* Jarak dari teks "ARE YOU READY?" di background */
+        z-index: 10;
     }
 
     /* Timer dan Skor */
